@@ -1,17 +1,9 @@
-tags: 13.1-1.70
-13.1-1.70.arch: amd64
-13.1-1.70.name: "rust"
-13.1-1.70.timestamp.amd64: 1689706816
-13.1-1.70.sum.amd64: a0c9b696afab1ccdd1e82847a8bdf0f2764b86ee2bca6bda7b74e38557f6cc2c
-13.1-1.70.size.amd64: 156840084
-13.1-1.70.source.amd64: https://dtxdf.duckdns.org/y3o4T22dze/rust_13_1_1_70_amd64_image_appjail
-13.1-1.70.source.amd64+: https://anonget.onrender.com/y3o4T22dze/rust_13_1_1_70_amd64_image_appjail
-
-tags+: 13.2-1.70
-13.2-1.70.arch: amd64
-13.2-1.70.name: "rust"
-13.2-1.70.timestamp.amd64: 1689708107
-13.2-1.70.sum.amd64: c6d8112cf566dc4cde3d8a5904f01cfcacc68bf055797a6a3c12d7c329d37678
-13.2-1.70.size.amd64: 158233740
-13.2-1.70.source.amd64: https://dtxdf.duckdns.org/l0o3Tc2czc/rust_13_2_1_70_amd64_image_appjail
-13.2-1.70.source.amd64+: https://anonget.onrender.com/l0o3Tc2czc/rust_13_2_1_70_amd64_image_appjail
+tags: 13.2-1.71
+13.2-1.71.arch: amd64
+13.2-1.71.name: "rust"
+13.2-1.71.timestamp.amd64: 1691367062
+13.2-1.71.sum.amd64: 4af5d46892e6ebe633eb32f3d6666f60db19152d83d8eb5d62a8b927c9e44461
+13.2-1.71.size.amd64: 152362276
+13.2-1.71.source.amd64: https://dtxdf.duckdns.org/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
+13.2-1.71.source.amd64+: https://storm-bsd.duckdns.org/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
+13.2-1.71.source.amd64+: https://anonget.onrender.com/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
