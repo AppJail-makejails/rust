@@ -1,9 +1,7 @@
 tags: 13.2-1.71
 13.2-1.71.arch: amd64
 13.2-1.71.name: "rust"
-13.2-1.71.timestamp.amd64: 1691367062
-13.2-1.71.sum.amd64: 4af5d46892e6ebe633eb32f3d6666f60db19152d83d8eb5d62a8b927c9e44461
-13.2-1.71.size.amd64: 152362276
-13.2-1.71.source.amd64: https://dtxdf.duckdns.org/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
-13.2-1.71.source.amd64+: https://storm-bsd.duckdns.org/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
-13.2-1.71.source.amd64+: https://anonget.onrender.com/B3SfV961z6/rust_13_2_1_71_amd64_image_appjail
+13.2-1.71.timestamp.amd64: 1692098582
+13.2-1.71.sum.amd64: 992c6329c4f52ba5d9653e74f3de6a7c21ad8d23625391a40946f5f63a5f20d0
+13.2-1.71.size.amd64: 155707708
+13.2-1.71.source.amd64: "https://drive.google.com/uc?export=download&id=1vuyH5n7HTVrXMN7rlQhV0PLkeRqqO3-U&confirm=t&uuid=48bacdb6-6f08-42ca-9772-c2361339aac9"
