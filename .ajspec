@@ -1,7 +1,7 @@
 tags: 13.2-1.71
 13.2-1.71.arch: amd64
 13.2-1.71.name: "rust"
-13.2-1.71.timestamp.amd64: 1692098582
-13.2-1.71.sum.amd64: 992c6329c4f52ba5d9653e74f3de6a7c21ad8d23625391a40946f5f63a5f20d0
-13.2-1.71.size.amd64: 155707708
-13.2-1.71.source.amd64: "https://drive.google.com/uc?export=download&id=1vuyH5n7HTVrXMN7rlQhV0PLkeRqqO3-U&confirm=t&uuid=48bacdb6-6f08-42ca-9772-c2361339aac9"
+13.2-1.71.timestamp.amd64: 1692973357
+13.2-1.71.sum.amd64: 657185cc8d8331058963c2b8df1b01f3c5bf215845f15e7f3dfadcbb1caa99b1
+13.2-1.71.size.amd64: 152377260
+13.2-1.71.source.amd64: "http://appjail.hpc.at/rust/13.2-1.71-amd64-image.appjail"
