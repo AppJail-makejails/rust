@@ -1,8 +1,8 @@
 tags+: 13.2-1.73
 13.2-1.73.arch: amd64
 13.2-1.73.name: "rust"
-13.2-1.73.timestamp.amd64: 1698704640
-13.2-1.73.sum.amd64: bf161dd4c3acb7de063d453f2efddc5261bca75cf0956085bc07ba8f968fe341
-13.2-1.73.size.amd64: 157258644
+13.2-1.73.timestamp.amd64: 1700067916
+13.2-1.73.sum.amd64: 30612dc48afe6774383765e0338ea36da900f4afdc39bd9ac9361c325859df59
+13.2-1.73.size.amd64: 156021016
 13.2-1.73.source.amd64: https://images.all101bsd.download/rust/13.2-1.73-amd64-image.appjail
 13.2-1.73.source.amd64+: http://appjail.hpc.at/rust/13.2-1.73-amd64-image.appjail
