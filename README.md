@@ -112,32 +112,6 @@ Now our jail with the application we want to run has a very reduced size.
 
 Much of the size overhead if for jail, but for big applications this is not harmful.
 
-## How to build the Image
-
-Make any changes you want to your image.
-
-```
-INCLUDE options/network.makejail
-INCLUDE gh+AppJail-makejails/rust --file build.makejail
-```
-
-Build the jail:
-
-```sh
-appjail makejail -j rust
-```
-
-Remove unportable or unnecessary files and directories and export the jail:
-
-```sh
-appjail stop rust
-appjail cmd local rust sh -c "rm -f var/log/*"
-appjail cmd local rust sh -c "rm -f var/cache/pkg/*"
-appjail cmd local rust sh -c "rm -f var/run/*"
-appjail cmd local rust vi etc/rc.conf
-appjail image export rust
-```
-
 ## Tags
 
 | Tag         | Arch    | Version        | Type   |
