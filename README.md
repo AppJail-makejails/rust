@@ -140,6 +140,7 @@ appjail image export rust
 
 ## Tags
 
-| Tag         | Arch    | Version           | Type   |
-| ----------- | ------- | ----------------- | ------ |
+| Tag         | Arch    | Version        | Type   |
+| ----------- | ------- | -------------- | ------ |
 | `13.2-1.73` | `amd64` | `13.2-RELEASE` | `thin` |
+| `14.0-1.73` | `amd64` | `14.0-RELEASE` | `thin` |
