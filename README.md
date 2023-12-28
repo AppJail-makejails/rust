@@ -116,5 +116,5 @@ Much of the size overhead if for jail, but for big applications this is not harm
 
 | Tag         | Arch    | Version        | Type   |
 | ----------- | ------- | -------------- | ------ |
-| `13.2-1.73` | `amd64` | `13.2-RELEASE` | `thin` |
-| `14.0-1.73` | `amd64` | `14.0-RELEASE` | `thin` |
+| `13.2-1.74` | `amd64` | `13.2-RELEASE` | `thin` |
+| `14.0-1.74` | `amd64` | `14.0-RELEASE` | `thin` |
