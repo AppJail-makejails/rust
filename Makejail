@@ -1,5 +1,5 @@
 INCLUDE options/options.makejail
 
-ARG rust_tag=13.3-1.76
+ARG rust_tag=13.3-1.77
 
 FROM --entrypoint gh+AppJail-makejails/rust rust:${rust_tag}
