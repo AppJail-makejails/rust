@@ -114,12 +114,12 @@ Much of the size overhead if for jail, but for big applications this is not harm
 
 ### Arguments
 
-* `rust_tag` (default: `13.4`): see [#tags](#tags).
+* `rust_tag` (default: `13.5`): see [#tags](#tags).
 * `rust_ajspec` (default: `gh+AppJail-makejails/rust`): Entry point where the `appjail-ajspec(5)` file is located.
 
 ## Tags
 
 | Tag     | Arch    | Version        | Type   |
 | ------- | ------- | -------------- | ------ |
-| `13.4`  | `amd64` | `13.4-RELEASE` | `thin` |
+| `13.5`  | `amd64` | `13.5-RELEASE` | `thin` |
 | `14.2`  | `amd64` | `14.2-RELEASE` | `thin` |
