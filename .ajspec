@@ -1,17 +1,17 @@
 tags+: 13.5
 13.5.arch: amd64
 13.5.name: "rust"
-13.5.timestamp.amd64: 1744216537
-13.5.sum.amd64: d6ce1a49bc9fe049eff127d7b415483bb63383d2a578daa7db8189727ffedf38
-13.5.size.amd64: 270442551
+13.5.timestamp.amd64: 1746027237
+13.5.sum.amd64: ae837f4bc46b9f94642aa03db92c1dcc708cf8e9a3d36c7a2368f19587486784
+13.5.size.amd64: 283398342
 13.5.source.amd64: "https://images.all101bsd.download/rust/13.5-amd64-image.appjail"
 13.5.source.amd64+: "http://appjail.hpc.at/rust/13.5-amd64-image.appjail"
 tags+: 14.2
 14.2.arch: amd64
 14.2.name: "rust"
-14.2.timestamp.amd64: 1744216926
-14.2.sum.amd64: e3c663768822b21856773a0473530b85289e09ccd125bb84134916edfb384d7a
-14.2.size.amd64: 268194938
+14.2.timestamp.amd64: 1746027431
+14.2.sum.amd64: 5136ade97c106c45d565128d0c03839765ce29580bebcf2874a37c8e8741e29c
+14.2.size.amd64: 284035425
 14.2.source.amd64: "https://images.all101bsd.download/rust/14.2-amd64-image.appjail"
 14.2.source.amd64+: "http://appjail.hpc.at/rust/14.2-amd64-image.appjail"
 maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
