@@ -1,0 +1,8 @@
+build:
+  variants:
+    - tag: %%TAG1%%
+      containerfile: Containerfile.pkg
+      aliases: ["latest"]
+      default: true
+      args:
+        FREEBSD_RELEASE: "%%TAG1%%"

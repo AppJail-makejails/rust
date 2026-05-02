@@ -114,12 +114,11 @@ Much of the size overhead if for jail, but for big applications this is not harm
 
 ### Arguments
 
-* `rust_tag` (default: `%%TAG1%%`): see [#tags](#tags).
-* `rust_ajspec` (default: `gh+AppJail-makejails/rust`): Entry point where the `appjail-ajspec(5)` file is located.
+* `rust_from` (default: `ghcr.io/appjail-makejails/%%IMAGE_NAME%%`): Location of OCI image. See also [OCI Configuration](#oci-configuration).
+* `rust_tag` (default: `latest`): OCI image tag. See also [OCI Configuration](#oci-configuration).
 
-## Tags
+## OCI Configuration
 
-| Tag     | Arch    | Version        | Type   |
-| ------- | ------- | -------------- | ------ |
-| `%%TAG1%%`  | `amd64` | `%%TAG1%%-RELEASE` | `thin` |
-| `%%TAG2%%`  | `amd64` | `%%TAG2%%` | `thin` |
+```yaml
+%%OCI_CONFIGURATION%%
+```

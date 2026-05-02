@@ -1,6 +1,6 @@
-INCLUDE options/options.makejail
+ARG rust_from=ghcr.io/appjail-makejails/rust
+ARG rust_tag=latest
 
-ARG rust_tag=14.3
-ARG rust_ajspec=gh+AppJail-makejails/rust
-
-FROM --entrypoint "${rust_ajspec}" rust:${rust_tag}
+OPTION start
+OPTION overwrite=force
+OPTION from=${rust_from}:${rust_tag}

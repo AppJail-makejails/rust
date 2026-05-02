@@ -114,12 +114,18 @@ Much of the size overhead if for jail, but for big applications this is not harm
 
 ### Arguments
 
-* `rust_tag` (default: `14.3`): see [#tags](#tags).
-* `rust_ajspec` (default: `gh+AppJail-makejails/rust`): Entry point where the `appjail-ajspec(5)` file is located.
+* `rust_from` (default: `ghcr.io/appjail-makejails/rust`): Location of OCI image. See also [OCI Configuration](#oci-configuration).
+* `rust_tag` (default: `latest`): OCI image tag. See also [OCI Configuration](#oci-configuration).
 
-## Tags
+## OCI Configuration
 
-| Tag     | Arch    | Version        | Type   |
-| ------- | ------- | -------------- | ------ |
-| `14.3`  | `amd64` | `14.3-RELEASE` | `thin` |
-| `15`  | `amd64` | `15` | `thin` |
+```yaml
+build:
+  variants:
+    - tag: 15.0
+      containerfile: Containerfile.pkg
+      aliases: ["latest"]
+      default: true
+      args:
+        FREEBSD_RELEASE: "15.0"
+```

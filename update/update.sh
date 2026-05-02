@@ -8,10 +8,22 @@ BASEDIR=`realpath -- "${BASEDIR}"` || exit $?
 set -xe
 set -o pipefail
 
-cat -- "${BASEDIR}/Makejail.template" |\
-    sed -Ee "s/%%TAG1%%/${TAG1}/g" > "${BASEDIR}/../Makejail"
+mkdir -p -- "${BASEDIR}/../.daemonless"
+
+cat -- "${BASEDIR}/config.yaml.template" |\
+    sed -E \
+        -e "s/%%TAG1%%/${TAG1}/g" > "${BASEDIR}/../.daemonless/config.yaml"
 
 cat -- "${BASEDIR}/README.md.template" |\
     sed -E \
-        -e "s/%%TAG1%%/${TAG1}/g" \
-        -e "s/%%TAG2%%/${TAG2}/g" > "${BASEDIR}/../README.md"
+        -e "s/%%IMAGE_NAME%%/${IMAGE_NAME}/g" \
+        -e "/%%OCI_CONFIGURATION%%/{
+            r ${BASEDIR}/../.daemonless/config.yaml
+            d
+        }" > "${BASEDIR}/../README.md"
+
+mkdir -p -- "${BASEDIR}/../.github/workflows"
+
+cat -- "${BASEDIR}/build.yaml.template" |\
+    sed -E \
+        -e "s/%%IMAGE_NAME%%/${IMAGE_NAME}/g" > "${BASEDIR}/../.github/workflows/build.yaml"

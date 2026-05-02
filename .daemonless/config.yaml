@@ -1,0 +1,8 @@
+build:
+  variants:
+    - tag: 15.0
+      containerfile: Containerfile.pkg
+      aliases: ["latest"]
+      default: true
+      args:
+        FREEBSD_RELEASE: "15.0"
