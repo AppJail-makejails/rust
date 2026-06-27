@@ -1,10 +1,10 @@
-# Rust
+# rust
 
 Rust is a multi-paradigm, general-purpose programming language that emphasizes performance, type safety, and concurrency. It enforces memory safety—ensuring that all references point to valid memory—without requiring the use of a garbage collector or reference counting present in other memory-safe languages. To simultaneously enforce memory safety and prevent concurrent data races, its "borrow checker" tracks the object lifetime of all references in a program during compilation. Rust is popularized for systems programming but also has high-level features including some functional programming constructs.
 
 wikipedia.org/wiki/Rust_(programming_language)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/800px-Rust_programming_language_black_logo.svg.png" alt="rust logo" width="60%" height="auto">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/500px-Rust_programming_language_black_logo.svg.png" width="30%" height="auto" alt="rust logo">
 
 ## How to use this Makejail
 
@@ -112,7 +112,7 @@ Now our jail with the application we want to run has a very reduced size.
 
 Much of the size overhead if for jail, but for big applications this is not harmful.
 
-### Arguments
+### Arguments (stage: build)
 
 * `rust_from` (default: `ghcr.io/appjail-makejails/rust`): Location of OCI image. See also [OCI Configuration](#oci-configuration).
 * `rust_tag` (default: `latest`): OCI image tag. See also [OCI Configuration](#oci-configuration).
@@ -122,10 +122,14 @@ Much of the size overhead if for jail, but for big applications this is not harm
 ```yaml
 build:
   variants:
-    - tag: 15.0
-      containerfile: Containerfile.pkg
+    - tag: 15.1
+      containerfile: Containerfile
       aliases: ["latest"]
       default: true
       args:
-        FREEBSD_RELEASE: "15.0"
+        FREEBSD_RELEASE: "15.1"
 ```
+
+## Notes
+
+1. This Makejail includes [gh+AppJail-makejails/user-mapping](https://github.com/AppJail-makejails/user-mapping).
