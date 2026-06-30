@@ -6,3 +6,8 @@ build:
       default: true
       args:
         FREEBSD_RELEASE: "15.1"
+    - tag: 15.1-nightly
+      containerfile: Containerfile
+      args:
+        FREEBSD_RELEASE: "15.1"
+        NIGHTLY: 'yes'

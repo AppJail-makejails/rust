@@ -8,109 +8,90 @@ wikipedia.org/wiki/Rust_(programming_language)
 
 ## How to use this Makejail
 
-### Basic usage
+### Start a Rust instance running your app
 
-Create a `Makejail` in your Rust app project.
+The most straightforward way to use this image is to use a Rust container as both the build and runtime environment. In your `Containerfile`, writing something along the lines of the following will compile and run your project:
 
-```
-INCLUDE options/network.makejail
-INCLUDE gh+AppJail-makejails/rust
+```Containerfile
+FROM ghcr.io/appjail-makejails/rust
 
-WORKDIR /app
-COPY app/
+WORKDIR /myapp
+COPY . .
 
-RUN rustc hello.rs
+# Depending on your project, you'll need many packages. FreeBSD-set-base-jail
+# installs many dependencies, although it may take up more unnecessary space
+# than if only the necessary packages were installed.
+RUN pkg install FreeBSD-set-base-jail && \
+    cargo install --path .
 
-STAGE cmd
-
-WORKDIR /app
-RUN ./hello
-```
-
-Where `options/network.makejail` are the options that suit your environment, for example:
-
-```
-ARG network
-ARG interface=rustapp
-
-OPTION virtualnet=${network}:${interface} default
-OPTION nat
+CMD ["myapp"]
 ```
 
-Open a shell and run `appjail makejail`:
-
-```sh
-appjail makejail -j rustapp -- --network development
-```
-
-To run the application we can use `appjail run`:
+Then, build and run the OCI image:
 
 ```console
-# appjail run rustapp
-Hello, world!
+$ buildah build --network=host -t my-rust-app .
+$ appjail oci run \
+    -o overwrite=force \
+    -o ephemeral \
+    -o alias \
+    -o ip4_inherit \
+    localhost/my-rust-app my-rust-app
 ```
 
-### Using Makejail builders
+This creates an image that has all of the rust tooling for the image, which is 2.32 GiB. If you just want the compiled application:
 
-If we get the size of the previous jail
+```dockerfile
+FROM ghcr.io/appjail-makejails/rust
+
+WORKDIR /myapp
+COPY . .
+
+RUN pkg install FreeBSD-set-base-jail && cargo install --path .
+
+FROM ghcr.io/appjail-makejails/base
+COPY --from=builder /usr/local/cargo/bin/myapp /usr/local/bin/myapp
+CMD ["myapp"]
+```
+
+This method will create an image that is only 34.5 MiB in size.
+
+### Compile your app inside the Docker container
+
+There may be occasions where it is not appropriate to run your app inside a container. To compile, but not run your app inside the container instance, you can write something like:
 
 ```console
-# appjail stop rustapp
+$ appjail oci run \
+    -o overwrite=force \
+    -o ephemeral \
+    -o alias \
+    -o ip4_inherit \
+    -o fstab="$PWD /myapp" \
+    -o pkg=FreeBSD-set-base-jail \
+    -o template=/usr/local/share/examples/appjail/templates/freebsd-oci.conf \
+    -w /myapp \
+    ghcr.io/appjail-makejails/rust:15.1 my-rust-app \
+    cargo build --release
+```
+
+This will add your current directory, as a volume, to the container, set the working directory to the volume, and run the command `cargo build --release`. This tells Cargo, Rust's build system, to compile the crate in `myapp` and output the executable to `target/release/myapp`.
+
+### OCI image and Makejail
+
+This repository includes a small `Makejail` that ultimately uses the OCI image, in case you prefer to use `appjail-makejail(5)`.
+
+```console
+$ appjail makejail \
+    -j rust \
+    -f gh+AppJail-makejails/rust \
+    -o alias \
+    -o ip4_inherit \
+    -o ephemeral \
+    -o container="args:--pull"
 ...
-# appjail cmd local rustapp du -sh
-789M    .
+$ appjail cmd jexec rust cargo version
+cargo 1.96.0 (30a34c682 2026-05-25) (built from a source tarball)
 ```
-
-we have a very large jail to run a simple binary. For compiled programming languages we could use Makejail builders to reduce the size of the jail.
-
-**Makejail**:
-
-```
-OPTION start
-OPTION overwrite
-
-EXEC --name rustapp-builder --file build.makejail --arg network=development --arg interface=rstappb
-
-WORKDIR /app
-COPY --jail rustapp-builder /app/hello
-DESTROY --force rustapp-builder
-
-STAGE cmd
-
-WORKDIR /app
-RUN ./hello
-```
-
-**build.makejail**:
-
-```
-INCLUDE options/network.makejail
-INCLUDE gh+AppJail-makejails/rust
-
-WORKDIR /app
-COPY app/
-
-RUN rustc hello.rs
-```
-
-For simplicity, `Makejail` does not use more options than necessary, but you can use as many as you want without affecting `build.makejail`.
-
-Open a shell and run `appjail makejail`:
-
-```sh
-appjail makejail -j rustapp
-```
-
-Now our jail with the application we want to run has a very reduced size.
-
-```console
-# appjail stop rustapp
-...
-# appjail cmd local rustapp du -sh
- 13M    .
-```
-
-Much of the size overhead if for jail, but for big applications this is not harmful.
 
 ### Arguments (stage: build)
 
@@ -128,8 +109,13 @@ build:
       default: true
       args:
         FREEBSD_RELEASE: "15.1"
+    - tag: 15.1-nightly
+      containerfile: Containerfile
+      args:
+        FREEBSD_RELEASE: "15.1"
+        NIGHTLY: 'yes'
 ```
 
 ## Notes
 
-1. This Makejail includes [gh+AppJail-makejails/user-mapping](https://github.com/AppJail-makejails/user-mapping).
+1. The ideas present in the Docker image of Rust are taken into account for users who are familiar with it.
