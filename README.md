@@ -70,7 +70,7 @@ $ appjail oci run \
     -o pkg=FreeBSD-set-base-jail \
     -o template=/usr/local/share/examples/appjail/templates/freebsd-oci.conf \
     -w /myapp \
-    ghcr.io/appjail-makejails/rust:15.1 my-rust-app \
+    ghcr.io/appjail-makejails/rust my-rust-app \
     cargo build --release
 ```
 
