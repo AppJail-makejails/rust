@@ -4,7 +4,7 @@ Rust is a multi-paradigm, general-purpose programming language that emphasizes p
 
 wikipedia.org/wiki/Rust_(programming_language)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/500px-Rust_programming_language_black_logo.svg.png" width="30%" height="auto" alt="rust logo">
+<img src="https://raw.githubusercontent.com/docker-library/docs/a11c341c57de07fbccfed7b21ea92d4bc40130a2/rust/logo.png" width="30%" height="auto" alt="rust logo">
 
 ## How to use this Makejail
 
